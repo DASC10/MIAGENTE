@@ -1,9 +1,9 @@
 [build]
-  command = "npm run build"
+  command = "npm install --legacy-peer-deps --no-package-lock && npm run build"
   publish = "dist"
   functions = "netlify/functions"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[build.environment]
+  NODE_VERSION = "18.18.0"
+  GO_SKIP_INSTALL = "true"
+  VITE_NETLIFY = "true"
